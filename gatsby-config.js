@@ -6,8 +6,10 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "",
-        dataset: "",
+        projectId: `wrhxnny3`,
+        dataset: "production",
+        watchMode: true,
+        token: process.env.SANITY_TOKEN
       },
     },
     "gatsby-plugin-sharp",
