@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "@emotion/styled";
-import logo from "../images/dog.png";
+import logo from "../images/logo.svg";
 
 const Container = styled.div`
   padding: 0 1rem;
   margin: 0.3rem auto;
   width: 100%;
-  background-color: teal;
+  background-color: #d147a3;
   text-align: right;
   height: 8vh;
   display: flex;
