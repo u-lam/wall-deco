@@ -100,47 +100,51 @@ const links = [
 // markup
 const Home = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role='img' aria-label='Party popper emojis'>
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role='img' aria-label='Sunglasses smiley emoji'>
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
+    <Layout>
+      <main style={pageStyles}>
+        <title>Home Page</title>
+        <h1 style={headingStyles}>
+          Congratulations
+          <br />
+          <span style={headingAccentStyles}>
+            — you just made a Gatsby site!{" "}
+          </span>
+          <span role='img' aria-label='Party popper emojis'>
+            🎉🎉🎉
+          </span>
+        </h1>
+        <p style={paragraphStyles}>
+          Edit <code style={codeStyles}>src/pages/index.js</code> to see this
+          page update in real-time.{" "}
+          <span role='img' aria-label='Sunglasses smiley emoji'>
+            😎
+          </span>
+        </p>
+        <ul style={listStyles}>
+          <li style={docLinkStyle}>
+            <a
+              style={linkStyle}
+              href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+            >
+              {docLink.text}
+            </a>
           </li>
-        ))}
-      </ul>
-    </main>
+          {links.map(link => (
+            <li style={{ ...listItemStyles, color: link.color }}>
+              <span>
+                <a
+                  style={linkStyle}
+                  href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+                >
+                  {link.text}
+                </a>
+                <p style={descriptionStyle}>{link.description}</p>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </Layout>
   );
 };
 
