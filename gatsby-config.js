@@ -40,6 +40,16 @@ module.exports = {
         path: "./src/pages/"
       },
       __key: "pages"
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `philosopher`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: "swap"
+      }
     }
   ]
 };

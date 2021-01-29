@@ -1,18 +1,23 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import styled from "@emotion/styled";
-import logo from "../images/logo.svg";
+// import logo from "../images/logo.svg";
+import cart from "../images/cart.svg";
 
 const Container = styled.div`
   padding: 0 1rem;
   margin: 0.3rem auto;
   width: 100%;
-  background-color: #d147a3;
+  /* background-color: #d147a3; */
+  background-color: #fff;
   text-align: right;
   height: 8vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  box-shadow: 0 10px 6px -6px #777;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
 
   @media (max-width: 768px) {
     position: sticky;
@@ -30,7 +35,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   margin: 0 1.2rem;
   position: relative;
-
+  color: #000;
   :after {
     position: absolute;
     bottom: 0;
@@ -62,10 +67,14 @@ const StyledLink = styled(Link)`
 const LogoWrapper = styled.div`
   position: absolute;
   left: 0;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  /* changing colors and size */
+  color: #000;
+  font-size: 2rem;
 
   @media (max-width: 768px) and (orientation: landscape) {
     flex: 0 1 25px;
@@ -73,21 +82,26 @@ const LogoWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
 `;
 
 const Nav = () => (
   <Container>
     <LogoWrapper as={Link} to='/'>
-      <Img src={logo} alt='logos' />
+      {/* <Img src={logo} alt='logos' /> */}
+      <span>WDArt</span>
     </LogoWrapper>
 
     <StyledLink to='/'>Home</StyledLink>
-    <StyledLink to='/about/'>About</StyledLink>
-    <StyledLink to='/404'>Contact</StyledLink>
-    <StyledLink to='/shop/'>Shop</StyledLink>
-    <StyledLink to='/cart/'>Cart</StyledLink>
+    <StyledLink to='/blogs'>Blogs</StyledLink>
+
+    {/* <StyledLink to='/about/'>About</StyledLink>
+    <StyledLink to='/404'>Contact</StyledLink> */}
+    <StyledLink to='/products/'>Products</StyledLink>
+    <StyledLink to='/cart/'>
+      <Img src={cart} alt='cart' />
+    </StyledLink>
   </Container>
 );
 

@@ -1,13 +1,12 @@
 import React from "react";
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
-import Header from "./header";
+import Nav from "./header";
 import Footer from "./footer";
 
 // use Global styles to create fonts, font-size, primary & secondary colors, buttons, etc.
 
 const Wrapper = styled("div")`
-  border: 5px solid green;
   padding: 5px;
 `;
 
@@ -29,7 +28,7 @@ const Layout = ({ children }) => {
 
           body {
             margin: 0;
-            font-family: "Menlo", monospace;
+            font-family: "philosopher", sans-serif;
             font-weight: 500;
             line-height: 1.6;
           }
@@ -100,7 +99,7 @@ const Layout = ({ children }) => {
           }
         `}
       />
-      <Header />
+      <Nav />
       {children}
       <Footer />
     </Wrapper>
