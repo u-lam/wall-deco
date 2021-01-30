@@ -6,18 +6,19 @@ import cart from "../images/cart.svg";
 
 const Container = styled.div`
   padding: 0 1rem;
-  margin: 0.3rem auto;
+  /* margin: 0.3rem auto; */
   width: 100%;
   /* background-color: #d147a3; */
-  background-color: #fff;
+  background-color: #1d1f20;
+  /* color: #f4a15d; */
   text-align: right;
   height: 8vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  box-shadow: 0 10px 6px -6px #777;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
+  /* box-shadow: 0 5px 5px -5px #777;
+  -webkit-box-shadow: 0 5px 5px -5px #777
+  -moz-box-shadow: 0 5px 5px -5px #777; */
 
   @media (max-width: 768px) {
     position: sticky;
@@ -31,11 +32,11 @@ const Container = styled.div`
 
 const StyledLink = styled(Link)`
   display: inline-block;
-  color: white;
+  color: #f4a15d;
   text-decoration: none;
   margin: 0 1.2rem;
   position: relative;
-  color: #000;
+
   :after {
     position: absolute;
     bottom: 0;
@@ -45,13 +46,13 @@ const StyledLink = styled(Link)`
     /* adds a line transition upon hover */
     content: ".";
     color: transparent;
-    background: goldenrod;
+    background: #fff;
     height: 1px;
     transition: all 0.3s ease-in;
   }
 
   :hover {
-    color: goldenrod;
+    color: #fff;
     ::after {
       width: 100%;
     }
@@ -73,7 +74,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   text-decoration: none;
   /* changing colors and size */
-  color: #000;
+  color: #fff;
   font-size: 2rem;
 
   @media (max-width: 768px) and (orientation: landscape) {

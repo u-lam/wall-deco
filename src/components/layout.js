@@ -3,6 +3,7 @@ import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Nav from "./header";
 import Footer from "./footer";
+import background from "../images/bg-pic.png";
 
 // use Global styles to create fonts, font-size, primary & secondary colors, buttons, etc.
 
@@ -31,6 +32,7 @@ const Layout = ({ children }) => {
             font-family: "philosopher", sans-serif;
             font-weight: 500;
             line-height: 1.6;
+            background-color: #fff;
           }
 
           main {
