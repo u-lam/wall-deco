@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
-// import logo from "../images/logo.svg";
 import cart from "../images/cart.svg";
 
 const Container = styled.div`
   padding: 0 1rem;
-  /* margin: 0.3rem auto; */
   width: 100%;
-  /* background-color: #d147a3; */
-  background-color: #1d1f20;
-  /* color: #f4a15d; */
+  background-color: #fff;
+  /* if background image is mountaing, go with this, and black font
+  background-color: #1d1f20; */
+  font-family: "Philosopher", sans-serif;
   text-align: right;
   height: 8vh;
   display: flex;
@@ -46,13 +45,13 @@ const StyledLink = styled(Link)`
     /* adds a line transition upon hover */
     content: ".";
     color: transparent;
-    background: #fff;
+    background: #000;
     height: 1px;
     transition: all 0.3s ease-in;
   }
 
   :hover {
-    color: #fff;
+    color: #000;
     ::after {
       width: 100%;
     }
@@ -74,7 +73,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   text-decoration: none;
   /* changing colors and size */
-  color: #fff;
+  color: #000;
   font-size: 2rem;
 
   @media (max-width: 768px) and (orientation: landscape) {
@@ -91,7 +90,7 @@ const Nav = () => (
   <Container>
     <LogoWrapper as={Link} to='/'>
       {/* <Img src={logo} alt='logos' /> */}
-      <span>WDArt</span>
+      WDArt
     </LogoWrapper>
 
     <StyledLink to='/'>Home</StyledLink>

@@ -3,7 +3,6 @@ import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Nav from "./header";
 import Footer from "./footer";
-import background from "../images/bg-pic.png";
 
 // use Global styles to create fonts, font-size, primary & secondary colors, buttons, etc.
 
@@ -29,7 +28,7 @@ const Layout = ({ children }) => {
 
           body {
             margin: 0;
-            font-family: "philosopher", sans-serif;
+            font-family: "Philosopher", sans-serif;
             font-weight: 500;
             line-height: 1.6;
             background-color: #fff;
@@ -77,27 +76,27 @@ const Layout = ({ children }) => {
           h1 {
             font-size: 2.5rem;
             line-height: 1.25em;
-            margin-bottom: 30px;
+            /* margin-bottom: 30px; */
           }
           h2 {
             font-size: 2em;
             line-height: 1.25em;
-            margin-bottom: 25px;
+            /* margin-bottom: 25px; */
           }
           h3 {
             font-size: 1.75em;
             line-height: 1.2em;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
           }
           h4 {
             font-size: 1.25em;
             line-height: 0.9em;
-            margin-bottom: 15px;
+            /* margin-bottom: 15px; */
           }
           h5 {
             font-size: 1em;
             line-height: 0.85em;
-            margin-bottom: 10px;
+            /* margin-bottom: 10px; */
           }
         `}
       />
