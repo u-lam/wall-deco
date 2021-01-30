@@ -1,11 +1,11 @@
 import * as React from "react";
-import { jsx, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
-import background from "../images/bg.png";
+// import background from "../images/bg.png";
 
 // trying a different landing page
-// import background from "../images/mountain.jpg";
+import background from "../images/mountain.jpg";
 
 const Container = styled.div`
   background: url(${background}) no-repeat center center fixed;
@@ -14,8 +14,8 @@ const Container = styled.div`
   -o-background-size: cover;
   background-size: cover;
   width: 100%;
-  height: 82vh;
-  /* header takes up 8vh */
+  height: 83vh;
+  /* header takes up 7vh */
   /* footer will take the other 10vh */
 `;
 
@@ -39,11 +39,19 @@ const divStyles = css`
 const h1Styles = css`
   margin: 0 auto;
   font-weight: 300;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const h1BoldStyles = css`
   margin: 0 auto;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Home = () => {

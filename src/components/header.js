@@ -6,12 +6,12 @@ import cart from "../images/cart.svg";
 const Container = styled.div`
   padding: 0 1rem;
   width: 100%;
-  background-color: #fff;
-  /* if background image is mountaing, go with this, and black font
-  background-color: #1d1f20; */
+  /* background-color: #fff; */
+  /* if background image is mountaing, go with this, and black font */
+  background-color: #1d1f20;
   font-family: "Philosopher", sans-serif;
   text-align: right;
-  height: 8vh;
+  height: 7vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,7 +21,7 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     position: sticky;
-    height: 8vh;
+    height: 7vh;
     top: 0;
     left: 0;
     right: 0;
@@ -45,13 +45,15 @@ const StyledLink = styled(Link)`
     /* adds a line transition upon hover */
     content: ".";
     color: transparent;
-    background: #000;
+    /* background: #000; */
+    background: #fff;
     height: 1px;
     transition: all 0.3s ease-in;
   }
 
   :hover {
-    color: #000;
+    /* color: #000; */
+    color: #fff;
     ::after {
       width: 100%;
     }
@@ -73,7 +75,8 @@ const LogoWrapper = styled.div`
   align-items: center;
   text-decoration: none;
   /* changing colors and size */
-  color: #000;
+  /* color: #000; */
+  color: #fff;
   font-size: 2rem;
 
   @media (max-width: 768px) and (orientation: landscape) {
