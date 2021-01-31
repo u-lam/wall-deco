@@ -61,7 +61,8 @@ const Layout = ({ children }) => {
             max-width: 100%;
           }
           p {
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin: 0;
           }
 
           h1,

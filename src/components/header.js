@@ -97,10 +97,8 @@ const Nav = () => (
     </LogoWrapper>
 
     <StyledLink to='/'>Home</StyledLink>
+    <StyledLink to='/about/'>About</StyledLink>
     <StyledLink to='/blogs'>Blogs</StyledLink>
-
-    {/* <StyledLink to='/about/'>About</StyledLink>
-    <StyledLink to='/404'>Contact</StyledLink> */}
     <StyledLink to='/products/'>Products</StyledLink>
     <StyledLink to='/cart/'>
       <Img src={cart} alt='cart' />

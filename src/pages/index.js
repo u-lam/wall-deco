@@ -14,7 +14,7 @@ const Container = styled.div`
   -o-background-size: cover;
   background-size: cover;
   width: 100%;
-  height: 83vh;
+  height: 80vh;
   /* header takes up 7vh */
   /* footer will take the other 10vh */
 `;
