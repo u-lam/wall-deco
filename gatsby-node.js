@@ -30,19 +30,6 @@ async function turnArtIntoPages({ graphql, actions }) {
       slug {
         current
       }
-      wallArtImg {
-        asset {
-          id
-          assetId
-          description
-          title
-          extension
-          fluid {
-            src
-          }
-        }
-      }
-      credit
     }
   }
 }
@@ -51,7 +38,6 @@ async function turnArtIntoPages({ graphql, actions }) {
   data.wallArt.nodes.forEach(art=> {
     console.log('each art is this')
     console.log(art)
-    console.log(art.wallArtImg.asset.description)
     console.log('*******************************************************************************************************************')
     actions.createPage({
       // what is the url? use the slug we have access to
@@ -60,6 +46,7 @@ async function turnArtIntoPages({ graphql, actions }) {
       component: artTemplate,
       context:{
         art: art,
+        slug: art.slug.current
       }
     })
   })
