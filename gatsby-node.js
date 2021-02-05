@@ -24,24 +24,28 @@ async function turnArtIntoPages({ graphql, actions }) {
   const artTemplate = path.resolve('./src/templates/SingleArt.js');
   const { data } = await graphql(`
   query {
-    wallArt: allSanityWallArt {
-      nodes {
-        wallArtImg {
-          asset {
-            id
-            assetId
-            description
-            title
-            extension
-            fluid {
-              src
-            }
+  wallArt: allSanityWallArt {
+    nodes {
+      title
+      slug {
+        current
+      }
+      wallArtImg {
+        asset {
+          id
+          assetId
+          description
+          title
+          extension
+          fluid {
+            src
           }
         }
-        credit
       }
+      credit
     }
   }
+}
   `)
 
   data.wallArt.nodes.forEach(art=> {
@@ -51,7 +55,7 @@ async function turnArtIntoPages({ graphql, actions }) {
     console.log('*******************************************************************************************************************')
     actions.createPage({
       // what is the url? use the slug we have access to
-      path:`art/${art.wallArtImg.title}`,
+      path:`art/${art.slug.current}`,
       // what is the component?
       component: artTemplate,
       context:{
