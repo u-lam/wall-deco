@@ -19,7 +19,7 @@ const WallArt = ({ data })=> {
     return (
       <div>
         <p>{node.title}</p>
-        <Link to={node.slug.current}>{node.title}</Link>
+        <Link to={`/art/${node.slug.current}`}>{node.title}</Link>
         <button onClick={()=> setOrder([ ...order, node ])}>Add to Cart</button>
         <Img fluid={node.wallArtImg.asset.fluid} alt={node.title} />
       </div>
