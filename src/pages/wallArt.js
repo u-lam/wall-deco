@@ -4,12 +4,21 @@ import Img from 'gatsby-image'
 import { graphql, Link } from 'gatsby';
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import Layout from "../components/layout";
 
+
+const Container = styled.div`
+  width: 100%;
+  height: 80vh;
+  /* header takes up 7vh */
+  /* footer will take the other 10vh */
+`;
 
 const ArtGrid = styled.div`
   display: grid;
   gap: 3rem;
-  grid-template-columns: repeat(3, 200px)
+  grid-template-columns: repeat(5, 200px);
+  height:600px;
 `;
  
 const WallArt = ({ data })=> { 
@@ -25,12 +34,14 @@ const WallArt = ({ data })=> {
       </div>
   )})
   return ( 
-     <div> 
+    <Layout> 
+      <Container>
        <p>CartCount: {order.length}</p>
        <ArtGrid>
          {artArray}
        </ArtGrid>
-     </div> 
+      </Container>
+     </Layout> 
   ) 
 } 
 
