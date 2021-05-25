@@ -2,7 +2,6 @@ import * as React from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
-// import background from "../images/bg.png";
 
 // trying a different landing page
 import background from "../images/mountain.jpg";
@@ -13,7 +12,7 @@ const Container = styled.div`
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  width: 100%;
+  min-width: 100%;
   height: 80vh;
   /* header takes up 7vh */
   /* footer will take the other 10vh */

@@ -7,7 +7,7 @@ const Container = styled.div`
   padding: 0 1rem;
   width: 100%;
   /* background-color: #fff; */
-  /* if background image is mountaing, go with this, and black font */
+  /* if background image is mountain, go with this, and black font */
   background-color: #1d1f20;
   font-family: "Philosopher", sans-serif;
   text-align: right;
@@ -15,9 +15,6 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* box-shadow: 0 5px 5px -5px #777;
-  -webkit-box-shadow: 0 5px 5px -5px #777
-  -moz-box-shadow: 0 5px 5px -5px #777; */
 
   @media (max-width: 768px) {
     position: sticky;
@@ -92,7 +89,6 @@ const Img = styled.img`
 const Nav = () => (
   <Container>
     <LogoWrapper as={Link} to='/'>
-      {/* <Img src={logo} alt='logos' /> */}
       WDArt
     </LogoWrapper>
 
