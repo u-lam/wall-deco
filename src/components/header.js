@@ -95,7 +95,7 @@ const Nav = () => (
     <StyledLink to='/'>Home</StyledLink>
     <StyledLink to='/about/'>About</StyledLink>
     <StyledLink to='/blogs'>Blogs</StyledLink>
-    <StyledLink to='/products/'>Products</StyledLink>
+    <StyledLink to='/wallArt/'>Products</StyledLink>
     <StyledLink to='/cart/'>
       <Img src={cart} alt='cart' />
     </StyledLink>
