@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { OrderContext } from "../components/OrderContext";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import cart from "../images/cart.svg";
@@ -85,8 +86,29 @@ const Img = styled.img`
   width: 30px;
   height: 30px;
 `;
+const NumberItems = styled.div`
+  position: absolute;
+  align-items: center;
+  top: 8px;
+  right: 16px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+  }
+`
 
-const Nav = () => (
+const Nav = () =>{
+  const [order, setOrder] = useContext(OrderContext);
+
+  return (
   <Container>
     <LogoWrapper as={Link} to='/'>
       WDArt
@@ -99,7 +121,16 @@ const Nav = () => (
     <StyledLink to='/cart/'>
       <Img src={cart} alt='cart' />
     </StyledLink>
+    {
+      order.length
+      ? 
+        (
+          <NumberItems><p>{order.length}</p></NumberItems>
+        )
+      : ''
+    }
   </Container>
-);
+  );
+}
 
 export default Nav;
