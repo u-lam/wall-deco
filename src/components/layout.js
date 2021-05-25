@@ -7,7 +7,7 @@ import Footer from "./footer";
 // use Global styles to create fonts, font-size, primary & secondary colors, buttons, etc.
 
 const Wrapper = styled("div")`
-  padding: 5px;
+  /* padding: 5px; */
 `;
 
 const Layout = ({ children }) => {
@@ -32,10 +32,11 @@ const Layout = ({ children }) => {
             font-weight: 500;
             line-height: 1.6;
             background-color: #fff;
+            overflow: hidden;
           }
 
           main {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
           }
 

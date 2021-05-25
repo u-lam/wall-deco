@@ -10,6 +10,12 @@ import slack from "../images/slack.png";
 const Container = styled.div`
   padding: 0 1rem;
   width: 100%;
+
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+
   /* height: auto; */
   background-color: #1d1f20;
   color: #fff;
