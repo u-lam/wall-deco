@@ -66,8 +66,7 @@ const Button = styled.button`
   }
 `;
 
-export const query = graphql`
-  query {
+export const query = graphql` query {
   allStripePrice {
     edges {
       node {
@@ -83,8 +82,7 @@ export const query = graphql`
       }
     }
   }
-}
-`;
+}`;
 
 
 const Cart = ({data}) => {
@@ -121,7 +119,7 @@ const Cart = ({data}) => {
       // need to pull in id's and match them with quantity and items from cart - use name to match
       // hard coded one
       lineItems: [ ...stripeConfiguredOrder],
-      successUrl: `${window.location.origin}/page-2/`,
+      successUrl: `${window.location.origin}/success/`,
       cancelUrl: `${window.location.origin}/`,
     })
 
