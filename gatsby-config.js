@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+console.log(process.env.RESTRICTED_STRIPE_API_KEY)
 module.exports = {
   siteMetadata: {
     title: "Wall Deco"
@@ -10,14 +13,6 @@ module.exports = {
         dataset: "production",
         watchMode: true,
         token: process.env.SANITY_TOKEN
-      }
-    },
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ['Sku', 'Product'],
-        secretKey: process.env.RESTRICTED_STRIPE_API_KEY,
-        downloadFiles: true,
       }
     },
     `gatsby-plugin-emotion`,
@@ -55,6 +50,14 @@ module.exports = {
         google: {
           families: ["Philosopher", "Mulish Condensed:700, 800"]
         }
+      }
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Price'],
+        secretKey: process.env.RESTRICTED_STRIPE_API_KEY,
+        downloadFiles: true,
       }
     }
   ]
