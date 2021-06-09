@@ -4,6 +4,8 @@ import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
+import getStripe from '../utils/stripejs'
+
 
 const CartHeader = styled.h1`
   text-align: center;
@@ -58,10 +60,70 @@ const Button = styled.button`
   }
 `;
 
+export const query = graphql`
+  query {
+  allStripePrice {
+    edges {
+      node {
+        id,
+        product {
+          id
+          object
+          name
+        }
+        unit_amount,
+        unit_amount_decimal,
+        currency
+      }
+    }
+  }
+}
+`;
 
-const Cart = () => {
+
+const Cart = ({data}) => {
   const [order, setOrder] = useContext(OrderContext);
+  const [stripeConfiguredOrder, setStripeConfiguredOrder] = useState([])
   const [artArray, setArtArray] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  useEffect(()=> {
+    // use a little function to make stripeConfiguredOrder from order and graphql data
+    if (order.length > 1 && data) {
+      // grab just the names of the items and put in array
+      let names = order.map((obj)=> obj.title)
+      // if the product.name is is in names, then put in 'inCart'
+      let inCart = data.allStripePrice.edges.filter((obj) => {
+        if (names.indexOf(obj.node.product.name) !== -1) {
+          return true
+        } else {
+          return false
+        }
+      })
+      console.log('in cart', inCart)
+      setStripeConfiguredOrder(inCart.map((item)=> ({price: item.node.id, quantity: 1 })))
+    }
+  }, [order])
+
+  const redirectToCheckout = async event => {
+    event.preventDefault()
+    setLoading(true)
+
+    const stripe = await getStripe()
+    const { error } = await stripe.redirectToCheckout({
+      mode: 'payment',
+      // need to pull in id's and match them with quantity and items from cart - use name to match
+      // hard coded one
+      lineItems: [ ...stripeConfiguredOrder],
+      successUrl: `${window.location.origin}/page-2/`,
+      cancelUrl: `${window.location.origin}/`,
+    })
+
+    if (error) {
+      console.warn('Error:', error)
+      setLoading(false)
+    }
+  }
   console.log(order)
 
   useEffect(()=> {
@@ -113,6 +175,9 @@ const Cart = () => {
     <Layout>
       <CartHeader>Checkout</CartHeader>
       <Container>{artArray}</Container>
+      <button disabled={loading} onClick={redirectToCheckout}>
+        Buy
+      </button>
     </Layout>
   );
 };
