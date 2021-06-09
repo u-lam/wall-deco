@@ -10,12 +10,12 @@ import getStripe from '../utils/stripejs'
 const CartHeader = styled.h1`
   text-align: center;
   font-family: philosopher;
-  font-size: 3rem;
+  font-size: 2rem;
 `
 
 const Container = styled.div`
   width: 100vw;
-  min-height: 70vh;
+  height: 60vh;
   padding: 20px 30px 20px 30px;
   background: #fff;
   display: grid;
@@ -24,6 +24,12 @@ const Container = styled.div`
   align-items: center;
   overflow: scroll;
 `;
+
+const ButtonContainer = styled.div`
+  width: 100vw;
+  text-align: center;
+  margin-bottom: 30px;
+`
 
 const ArtCard = styled.div`
   border: 1px solid lightgray;
@@ -40,7 +46,7 @@ const Button = styled.button`
   width: 120px;
   height: 40px;
   padding: 2px 15px;
-  background-color: #36454f;
+  background-color: ${({buy})=> buy ? 'blue': '#36454f'};
   /* background: linear-gradient(#ffac64, #dc9154); */
   border-radius: 10px;
   border: 1px solid #fff;
@@ -157,7 +163,7 @@ const Cart = ({data}) => {
           >
             By {artist[0]} {artist[1]}
           </h4>
-          <Button onClick={() => {
+          <Button buy={false} onClick={() => {
             let tempOrder = [...order]
             console.log(tempOrder)
             let filteredOrders = tempOrder.filter(item=> {
@@ -174,10 +180,14 @@ const Cart = ({data}) => {
   return (
     <Layout>
       <CartHeader>Checkout</CartHeader>
-      <Container>{artArray}</Container>
-      <button disabled={loading} onClick={redirectToCheckout}>
-        Buy
-      </button>
+      <Container>
+        {artArray}
+      </Container>
+      <ButtonContainer>
+        <Button disabled={loading} buy={true} onClick={redirectToCheckout}>
+          Buy
+        </Button>
+      </ButtonContainer>
     </Layout>
   );
 };
