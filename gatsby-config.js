@@ -12,6 +12,14 @@ module.exports = {
         token: process.env.SANITY_TOKEN
       }
     },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Sku', 'Product'],
+        secretKey: process.env.RESTRICTED_STRIPE_API_KEY,
+        downloadFiles: true,
+      }
+    },
     `gatsby-plugin-emotion`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
