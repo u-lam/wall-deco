@@ -33,6 +33,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.8.0",
     "gatsby-source-sanity": "^6.0.4",
+    "gatsby-source-stripe": "^3.2.2",
     "gatsby-transformer-sharp": "^2.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
