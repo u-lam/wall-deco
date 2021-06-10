@@ -4,8 +4,7 @@ import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
-import getStripe from '../utils/stripejs'
-
+import getStripe from '../utils/stripejs';
 
 const CartHeader = styled.h1`
   text-align: center;
@@ -84,30 +83,43 @@ export const query = graphql` query {
   }
 }`;
 
-
 const Cart = ({data}) => {
   const [order, setOrder] = useContext(OrderContext);
   const [stripeConfiguredOrder, setStripeConfiguredOrder] = useState([])
   const [artArray, setArtArray] = useState([])
   const [loading, setLoading] = useState(false)
+  const [namesAndQuant, setNamesAndQuant] = useState()
+  const [namesAndId, setNamesAndId] = useState()
 
   useEffect(()=> {
     // use a little function to make stripeConfiguredOrder from order and graphql data
     if (order.length > 1 && data) {
-      // grab just the names of the items and put in array
-      let names = order.map((obj)=> obj.title)
-      // if the product.name is is in names, then put in 'inCart'
-      let inCart = data.allStripePrice.edges.filter((obj) => {
-        if (names.indexOf(obj.node.product.name) !== -1) {
-          return true
-        } else {
-          return false
-        }
+      // set up names and quantity table from context
+      let namesAndQuant = {}
+      order.forEach((obj)=> {
+        namesAndQuant[obj.title] = namesAndQuant[obj.title] ? namesAndQuant[obj.title] + 1 : 1
       })
-      console.log('in cart', inCart)
-      setStripeConfiguredOrder(inCart.map((item)=> ({price: item.node.id, quantity: 1 })))
+      setNamesAndQuant(namesAndQuant)
+      //set up names and productId table from allStripePrice query
+      let namesAndId = {}
+      data.allStripePrice.edges.forEach((obj)=> {
+        namesAndId[obj.node.product.name] = obj.node.id
+      })
+      setNamesAndId(namesAndId)
     }
   }, [order])
+
+  useEffect(()=> {
+    // when both namesAndQuant table and namesAndId table are set
+    // use them to make configured order [{ product: , quantity: }, ...]
+    if (namesAndQuant && namesAndId) {
+      let tempArrOrder= []
+      Object.keys(namesAndQuant).forEach((key)=> {
+        tempArrOrder.push({ price: namesAndId[key], quantity: namesAndQuant[key]})
+      })
+      setStripeConfiguredOrder(tempArrOrder)
+    }
+  }, [setNamesAndQuant, setNamesAndId, namesAndQuant, namesAndId]) // don't know which will be last to update
 
   const redirectToCheckout = async event => {
     event.preventDefault()
@@ -128,7 +140,6 @@ const Cart = ({data}) => {
       setLoading(false)
     }
   }
-  console.log(order)
 
   useEffect(()=> {
     const tempArtArray = order.map(node => {
@@ -189,6 +200,5 @@ const Cart = ({data}) => {
     </Layout>
   );
 };
-
 
 export default Cart;
