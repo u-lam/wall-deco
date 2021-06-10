@@ -13,9 +13,9 @@ const Container = styled.div`
   -o-background-size: cover;
   background-size: cover;
   min-width: 100%;
-  height: 80vh;
+  height: calc(100vh - 7vh - 220px);
   /* header takes up 7vh */
-  /* footer will take the other 10vh */
+  /* footer will take the other 220px 10vh */
 `;
 
 const CatchPhrase = styled.div`

@@ -101,36 +101,34 @@ const NumberItems = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  p {
-  }
-`
+`;
 
-const Nav = () =>{
-  const [order, setOrder] = useContext(OrderContext);
+const Nav = () => {
+  const [order] = useContext(OrderContext);
 
   return (
-  <Container>
-    <LogoWrapper as={Link} to='/'>
-      WDArt
-    </LogoWrapper>
+    <Container>
+      <LogoWrapper as={Link} to="/">
+        WDArt
+      </LogoWrapper>
 
-    <StyledLink to='/'>Home</StyledLink>
-    <StyledLink to='/about/'>About</StyledLink>
-    <StyledLink to='/blogs'>Blogs</StyledLink>
-    <StyledLink to='/wallArt/'>Products</StyledLink>
-    <StyledLink to='/cart/'>
-      <Img src={cart} alt='cart' />
-    </StyledLink>
-    {
-      order.length
-      ? 
-        (
-          <NumberItems><p>{order.length}</p></NumberItems>
-        )
-      : ''
-    }
-  </Container>
+      <StyledLink to="/">Home</StyledLink>
+      <StyledLink to="/about/">About</StyledLink>
+      {/* for now, no blogs... */}
+      {/* <StyledLink to='/blogs'>Blogs</StyledLink> */}
+      <StyledLink to="/wallArt/">Products</StyledLink>
+      <StyledLink to="/cart/">
+        <Img src={cart} alt="cart" />
+      </StyledLink>
+      {order.length ? (
+        <NumberItems>
+          <p>{order.length}</p>
+        </NumberItems>
+      ) : (
+        ""
+      )}
+    </Container>
   );
-}
+};
 
 export default Nav;
