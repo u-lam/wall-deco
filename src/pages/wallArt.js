@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 
 const Container = styled.div`
   width: 100vw;
-  height: 80vh;
+  height: calc(100vh - 7vh - 220px);
   padding: 20px 30px 20px 30px;
   background: #fff;
   display: grid;
