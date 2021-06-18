@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-console.log(process.env.RESTRICTED_STRIPE_API_KEY)
 module.exports = {
   siteMetadata: {
     title: "Wall Deco"
@@ -18,7 +17,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    //"gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-manifest",
