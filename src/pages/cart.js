@@ -22,6 +22,7 @@ const Container = styled.div`
   grid-gap: 20px;
   align-items: center;
   overflow: scroll;
+  justify-content: center;
 `;
 
 const ButtonContainer = styled.div`
