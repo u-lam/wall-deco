@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { OrderContext } from "../components/OrderContext";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import styled from "@emotion/styled";
 import cart from "../images/cart.svg";
 import { GiHamburgerMenu as Ham } from "react-icons/gi";
@@ -17,6 +17,7 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  z-index:2;
 
   @media (max-width: 768px) {
     position: sticky;
@@ -100,7 +101,8 @@ height: 7vh;
 background: black;
 display: {({hidden}) => (hidden ? 'none' : 'block');
 `;
-const LowerStyledLink = styled(Link)`
+
+const LowerStyledLink = styled.p`
   display: inline-block;
   color: #f4a15d;
   text-decoration: none;
@@ -169,9 +171,8 @@ const Nav = () => {
   const [showDropDown, setShowDropDown] = useState(false);
 
   const handleNavigation = (path)=> {
-  // reset dropDown
-  // handle navigation
-
+    setShowDropDown(!showDropDown)
+    navigate(path)
   }
 
   return (
@@ -188,10 +189,10 @@ const Nav = () => {
         {/* <StyledLink to='/blogs'>Blogs</StyledLink> */}
         <StyledLink to="/wallArt/">Products</StyledLink>
       </LinkContainer>
-      <LowerLinkContainer hidden={showDropDown}>
-        <LowerStyledLink onClick={()=>setShowDropDown(!showDropDown)} to="/">Home</LowerStyledLink>
-        <LowerStyledLink to="/about/">About</LowerStyledLink>
-        <LowerStyledLink to="/wallArt/">Products</LowerStyledLink>
+      <LowerLinkContainer hidden={!showDropDown}>
+        <LowerStyledLink onClick={(e)=> handleNavigation('/')} to="/">Home</LowerStyledLink>
+        <LowerStyledLink onClick={(e)=> handleNavigation('/about/')} to="/about/">About</LowerStyledLink>
+        <LowerStyledLink onClick={(e)=> handleNavigation('/wallArt/')} to="/wallArt/">Products</LowerStyledLink>
       </LowerLinkContainer>
 
       <StyledLink to="/cart/">
