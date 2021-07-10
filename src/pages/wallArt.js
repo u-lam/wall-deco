@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { OrderContext } from "../components/OrderContext";
 import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 
 const Container = styled.div`
   width: 100vw;
-  height: 80vh;
+  height: calc(100vh - 7vh - 220px);
   padding: 20px 30px 20px 30px;
   background: #fff;
   display: grid;

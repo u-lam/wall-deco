@@ -2,6 +2,7 @@ import * as React from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Layout from "../components/layout";
+import {Link} from 'gatsby';
 
 // trying a different landing page
 import background from "../images/mountain.jpg";
@@ -13,9 +14,9 @@ const Container = styled.div`
   -o-background-size: cover;
   background-size: cover;
   min-width: 100%;
-  height: calc(100vh - 7vh - 220px);
+  height: 80vh;
   /* header takes up 7vh */
-  /* footer will take the other 220px 10vh */
+  /* footer will take the other 10vh */
 `;
 
 const CatchPhrase = styled.div`
@@ -60,10 +61,13 @@ const Home = () => {
         <CatchPhrase>
           <div styles={divStyles}>
             <div>
-              <h1 css={h1Styles}>The best photography</h1>
+              <h1 css={h1Styles}>Success, you just placed an order</h1>
             </div>
             <div css={{ textAlign: "center" }}>
-              <h1 css={h1BoldStyles}>on your wall</h1>
+              <h1 css={h1BoldStyles}>It'll be on your wall soon!</h1>
+            </div>
+            <div css={{ textAlign: "center" }}>
+              <Link css={{ color: "white" }}to='/'>Back to home</Link>
             </div>
           </div>
         </CatchPhrase>

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: "Wall Deco"
@@ -15,7 +17,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    //"gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-manifest",
@@ -47,6 +49,14 @@ module.exports = {
         google: {
           families: ["Philosopher", "Mulish Condensed:700, 800"]
         }
+      }
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Price'],
+        secretKey: process.env.RESTRICTED_STRIPE_API_KEY,
+        downloadFiles: true,
       }
     }
   ]
